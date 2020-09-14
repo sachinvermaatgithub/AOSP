@@ -1,23 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <manifest>
-  <remote review="https://android.googlesource.com/" name="aosp"/>
-  <remote review="." name="x86"/>
-  <remote review="https://gitlab.com/aosp_root" name="thermo" />
+  <remote fetch="https://android.googlesource.com/" name="aosp"/>
+  <remote fetch="git://git.osdn.net/gitroot/android-x86/" name="x86"/>
+  <remote fetch="https://gitlab.com/aospdemo/" name="samgit"/>
 
-
-  <project name="manifests" path="manifests" remote="thermo" />
-  <project name="newinstaller" path="bootable/newinstaller"  remote="thermo" />
- 
-  <project groups="pdk-cw-fs,pdk" path="device/common" name="device/common" revision="f87323bed1150074fee5a0ad64d76aaed0c58f00" upstream="refs/tags/android-8.1.0_r76"/>
-  <project path="device/generic/common" name="device/generic/common" remote="x86" revision="7049bbe12e98585f6d5f3329ebeafb717cc56bc8" upstream="oreo-x86"/>
-  <project path="device/generic/firmware" name="device/generic/firmware" remote="x86" revision="570c3f656f1a6f9ed2b703a371411bc1af272047" upstream="oreo-x86"/>
-  <project path="device/generic/uml" groups="device,pdk" name="device/generic/uml" revision="8dfdfa09a42e157cd03a6a940919b41863f00d40" upstream="refs/tags/android-8.1.0_r76"/>
-  <project path="device/generic/x86" name="device/generic/x86" remote="x86" revision="bad8628eed6997f7a85bd3eda138f4b3c0fab470" upstream="oreo-x86"/>
-  <project path="device/generic/x86_64" name="device/generic/x86_64" remote="x86" revision="960e113423ca2ed1541cc9de06f043446e03e858" upstream="oreo-x86"/>
-  <project path="device/sample" groups="pdk" name="device/sample" revision="8749163d3d14790128134d63c8a96bb31c301866" upstream="refs/tags/android-8.1.0_r76"/>
+  <default remote="aosp" revision="refs/tags/android-8.1.0_r76" sync-c="true" sync-j="4"/>
+  <project name="av" path="frameworks/av" revision="master" remote="samgit" />
+  <project name="sqlite" path="external/sqlite" revision="master" remote="samgit" />
+  <project groups="pdk-cw-fs,pdk" name="device/common" revision="f87323bed1150074fee5a0ad64d76aaed0c58f00" upstream="refs/tags/android-8.1.0_r76"/>
+  <project name="device/generic/common" remote="x86" revision="7049bbe12e98585f6d5f3329ebeafb717cc56bc8" upstream="oreo-x86"/>
+  <project name="device/generic/firmware" remote="x86" revision="570c3f656f1a6f9ed2b703a371411bc1af272047" upstream="oreo-x86"/>
+  <project groups="device,pdk" name="device/generic/uml" revision="8dfdfa09a42e157cd03a6a940919b41863f00d40" upstream="refs/tags/android-8.1.0_r76"/>
+  <project name="device/generic/x86" remote="x86" revision="bad8628eed6997f7a85bd3eda138f4b3c0fab470" upstream="oreo-x86"/>
+  <project name="device/generic/x86_64" remote="x86" revision="960e113423ca2ed1541cc9de06f043446e03e858" upstream="oreo-x86"/>
+  <project groups="pdk" name="device/sample" revision="8749163d3d14790128134d63c8a96bb31c301866" upstream="refs/tags/android-8.1.0_r76"/>
   <project name="kernel/common" path="kernel" remote="x86" revision="464351ddb8552bae9a379c2b8f4162e6848f16f3" upstream="kernel-4.19"/>
   <project groups="pdk" name="platform/art" path="art" revision="019baa4e67376ffd1968ee3c5e9b9a0008cfc014" upstream="refs/tags/android-8.1.0_r76"/>
   <project name="platform/bionic" path="bionic" remote="x86" revision="d2616f9296ed761055472db81bd5ec2a2e031864" upstream="oreo-x86"/>
+  <project name="platform/bootable/newinstaller" path="bootable/newinstaller" remote="x86" revision="a1e54494eb9acb2d467432f93ca5c206cd6aebff" upstream="oreo-x86"/>
   <project groups="pdk" name="platform/bootable/recovery" path="bootable/recovery" revision="435a2031d62e868aae928ec3c4090ea3bbea3397" upstream="refs/tags/android-8.1.0_r76"/>
   <project groups="pdk" name="platform/build" path="build/make" revision="307aaf17cd973d4219b29f29965ad75f19de060e" upstream="refs/tags/android-8.1.0_r67">
     <copyfile dest="Makefile" src="core/root.mk"/>
@@ -281,7 +281,7 @@
   <project groups="pdk" name="platform/external/sonivox" path="external/sonivox" revision="9fdc11bf99b652c70d50439d8446698a4e3d9a6d" upstream="refs/tags/android-8.1.0_r76"/>
   <project groups="pdk" name="platform/external/speex" path="external/speex" revision="f80fe69cf62e3b47396b41984f4d6df40bfe1c18" upstream="refs/tags/android-8.1.0_r76"/>
   <project groups="pdk" name="platform/external/spirv-llvm" path="external/spirv-llvm" revision="08b0dc5ecc4d6063b27153d2bbf4bc20fccd1162" upstream="refs/tags/android-8.1.0_r76"/>
-  <project groups="pdk" name="platform/external/sqlite" path="external/sqlite" revision="509217c61c07497db8b0d6d136f2d600c500990b" upstream="refs/tags/android-8.1.0_r76"/>
+  
   <project groups="pdk" name="platform/external/squashfs-tools" path="external/squashfs-tools" revision="8c214c801b59ca22b66a0f5cbb3c61af39311fc3" upstream="refs/tags/android-8.1.0_r76"/>
   <project name="platform/external/stagefright-plugins" path="external/stagefright-plugins" remote="x86" revision="8756e69e58087c3d68bca95c7244b6d0932fe50e" upstream="oreo-x86"/>
   <project groups="pdk" name="platform/external/strace" path="external/strace" revision="5b70c8ffac1eddfa08e3e279cbacf88a62b90093" upstream="refs/tags/android-8.1.0_r76"/>
@@ -326,7 +326,6 @@
   <project groups="pdk" name="platform/external/zlib" path="external/zlib" revision="5ce335946fc078f2273cf7bd7ade9b304d816c58" upstream="refs/tags/android-8.1.0_r76"/>
   <project groups="pdk" name="platform/external/zopfli" path="external/zopfli" revision="069cb023c39358bc0e1b3dc0397b8fcdd84b4d44" upstream="refs/tags/android-8.1.0_r76"/>
   <project groups="pdk" name="platform/external/zxing" path="external/zxing" revision="fedf8f2d8099bf7bb85dc3db8699343d56617deb" upstream="refs/tags/android-8.1.0_r76"/>
-  <project name="platform/frameworks/av" path="frameworks/av" remote="x86" revision="7a8f757369e43a9f13f32791693ce1341ba03844" upstream="oreo-x86"/>
   <project name="platform/frameworks/base" path="frameworks/base" remote="x86" revision="5efb307d414d4d800693b60e4459341b7e5551c2" upstream="oreo-x86"/>
   <project groups="pdk" name="platform/frameworks/compile/libbcc" path="frameworks/compile/libbcc" revision="8d1f0d7f4a9fe6611b2a435993e2642250f8bc9b" upstream="refs/tags/android-8.1.0_r76"/>
   <project groups="pdk" name="platform/frameworks/compile/mclinker" path="frameworks/compile/mclinker" revision="821f636d0b881a930cfc284d4d82ae39862d3a3b" upstream="refs/tags/android-8.1.0_r76"/>
@@ -511,5 +510,5 @@
   <project groups="vts,pdk" name="platform/test/vts-testcase/kernel" path="test/vts-testcase/kernel" revision="a4f727d733bf764a62a9f25ad51ef12db2ac8c86" upstream="refs/tags/android-8.1.0_r76"/>
   <project groups="vts,pdk-fs" name="platform/test/vts-testcase/performance" path="test/vts-testcase/performance" revision="f50dbfdf4d7adc68395dbea5d917a79f8a2e22b9" upstream="refs/tags/android-8.1.0_r76"/>
   <project groups="pdk,tradefed" name="platform/tools/apksig" path="tools/apksig" revision="1c40dc60b266ed2f4cc4247128d8feb117ad92c7" upstream="refs/tags/android-8.1.0_r76"/>
-  <project path="toolchain/binutils" groups="pdk" name="toolchain/binutils" revision="a4125cf8aeab9dfeac00f1bda80645987897152f" upstream="refs/tags/android-8.1.0_r76"/>
+  <project groups="pdk" name="toolchain/binutils" revision="a4125cf8aeab9dfeac00f1bda80645987897152f" upstream="refs/tags/android-8.1.0_r76"/>
 </manifest>
