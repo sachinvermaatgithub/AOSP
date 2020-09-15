@@ -2,7 +2,7 @@
 <manifest>
   <remote fetch="https://android.googlesource.com/" name="aosp"/>
   <remote fetch="git://git.osdn.net/gitroot/android-x86/" name="x86"/>
-  <remote fetch="https://gitlab.com/aospdemo/" name="samgit"/>
+  <remote fetch="git@github.com:sachinvermaatgithub/" name="samgit"/>
 
   <default remote="aosp" revision="refs/tags/android-8.1.0_r76" sync-c="true" sync-j="4"/>
   <project name="av" path="frameworks/av" revision="master" remote="samgit" />
